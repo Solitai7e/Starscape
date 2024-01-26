@@ -1,0 +1,86 @@
+html {
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    color: #FFF;
+}
+
+body {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+.bg, #star, #uro {
+    position: absolute;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+}
+
+.bg, #star {
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+
+.bg {
+    background-size: var(--size);
+    background-position: bottom var(--offset-bottom) right;
+    background-repeat: repeat-x;
+    animation-name: bg-scroll;
+    animation-iteration-count: infinite;
+}
+
+@keyframes bg-scroll {
+    to {
+        background-position: bottom var(--offset-bottom) right var(--size);
+    }
+}
+
+#starscape {
+    --size: 300vh;
+    --offset-bottom: -32vh;
+    animation-duration: 200s;
+    animation-timing-function: steps(800, start);
+}
+
+#mountain0 {
+    --size: 300vh;
+    --offset-bottom: -14vh;
+    background-image: url("mountain0.png");
+    animation-duration: 15s;
+    animation-timing-function: steps(500, start);
+}
+
+#mountain1 {
+    --size: 300vh;
+    --offset-bottom: -38vh;
+    background-image: url("mountain1.png");
+    animation-duration: 10s;
+    animation-timing-function: steps(250, start);
+}
+
+@keyframes wheeze {
+    0%   { background-image: url("star0.png"); }
+    25%  { background-image: url("star1.png"); }
+    50%  { background-image: url("star2.png"); }
+    75%  { background-image: url("star3.png"); }
+    100% { background-image: url("star4.png"); }
+}
+
+#star {
+    background-size: 45vh;
+    background-repeat: no-repeat;
+    top: -100vh;
+    animation: wheeze 0.3s steps(1, start);
+}
+
+#uro {
+    height: 16vh;
+    width: auto;
+    top: 50vh;
+    left: 20vw;
+    pointer-events: none;
+}
